@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Resources - Professional Learning Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #1abc9c;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fa;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-bottom: 25px;
+            height: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .card-header {
+            background-color: var(--primary);
+            color: white;
+            border-radius: 10px 10px 0 0 !important;
+            padding: 15px 20px;
+            font-weight: 600;
+        }
+        
+        .btn-primary {
+            background-color: var(--secondary);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+        
+        .footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .resource-category {
+            margin-bottom: 40px;
+        }
+        
+        .playlist-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .playlist-btn:hover {
+            background-color: var(--secondary);
+            transform: scale(1.05);
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .tech-badge {
+            background-color: #e9ecef;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--dark);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-laptop-code me-2"></i>
+                Tech Resources
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#resources">Resources</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4">Master Modern Software </h1>
+                    <p class="lead mb-4">Access curated playlists and resources for full-stack development, frontend technologies, backend frameworks, and more.</p>
+                    <a href="#resources" class="btn btn-light btn-lg">Explore Resources</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="py-5" id="resources">
+        <div class="container">
+            <h2 class="section-title text-center">Learning Resources</h2>
+            
+            <div class="row">
+                <!-- Full Stack Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-layer-group me-2"></i>Full Stack Development
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Complete web development journey from frontend to backend with modern frameworks and tools. available all tech badges youtube learning and projects, skill set videos with all languages like world wide in playlist(FSWD).</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">HTML</span>
+                                <span class="tech-badge">CSS</span>
+                                <span class="tech-badge">JavaScript</span>
+                                <span class="tech-badge">Node.js</span>
+                                <span class="tech-badge">Express</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge">SASS</span>
+                                <span class="tech-badge">React</span>
+                                <span class="tech-badge">Bootstrap</span>
+                                <span class="tech-badge">+More</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="playlist-btn" onclick="openPlaylist('fullstack')">
+                                    <i class="fas fa-play-circle me-1"></i> Open Playlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Frontend Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-palette me-2"></i>Artificial Intelligence
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Zero to Pro level all types of AI related videos here. </p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Computer Vision</span>
+                                <span class="tech-badge">NLP</span>
+                                <span class="tech-badge">Speech processing</span>
+                                <span class="tech-badge">Generative AI</span>
+                                <span class="tech-badge">Recommender Systems</span>
+                                <span class="tech-badge">AI Hardware</span>
+                                <span class="tech-badge">AutoML</span>
+                                <span class="tech-badge">AI Ethics</span>
+                                <span class="tech-badge">AI Frameworks</span>
+                                <span class="tech-badge">+More</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="playlist-btn" onclick="openPlaylist('frontend')">
+                                    <i class="fas fa-play-circle me-1"></i> Open Playlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend Card -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-server me-2"></i>Machine Learning
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Build robust server-side applications, APIs, and databases with modern backend technologies.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Supervised Learning</span>
+                                <span class="tech-badge">Unsupervised Learning</span>
+                                <span class="tech-badge">Ensemble Methods</span>
+                                <span class="tech-badge">Reinforcement Learning</span>
+                                <span class="tech-badge">Scikit-learn</span>
+                                <span class="tech-badge">XGBoost</span>
+                                <span class="tech-badge">+More</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="playlist-btn" onclick="openPlaylist('backend')">
+                                    <i class="fas fa-play-circle me-1"></i> Open Playlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Additional categories can be added here -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-mobile-alt me-2"></i>Mobile Development
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Create cross-platform mobile applications with React Native, Flutter, and other frameworks.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">React Native</span>
+                                <span class="tech-badge">Flutter</span>
+                                <span class="tech-badge">iOS</span>
+                                <span class="tech-badge">Android</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="playlist-btn" onclick="openPlaylist('mobile')">
+                                    <i class="fas fa-play-circle me-1"></i> Open Playlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-database me-2"></i>Database
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Learn database management, cloud services, and DevOps practices for modern applications.</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">MySQL</span>
+                                <span class="tech-badge">MongoDB</span>
+                                <span class="tech-badge"></span>
+                                <span class="tech-badge"></span>
+                                <span class="tech-badge"></span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="playlist-btn" onclick="openPlaylist('devops')">
+                                    <i class="fas fa-play-circle me-1"></i> Open Playlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <i class="fas fa-tools me-2"></i>Remaining IT Related Videos
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Essential development tools, libraries, and utilities to enhance your workflow. Everything like start engineering course to after It all Videos</p>
+                            <div class="tech-stack">
+                                <span class="tech-badge">Git</span>
+                                <span class="tech-badge">Webpack</span>
+                                <span class="tech-badge">NPM</span>
+                                <span class="tech-badge">VS Code</span>
+                                <span class="tech-badge">Chrome DevTools</span>
+                            </div>
+                            <div class="mt-3">
+                                <button class="playlist-btn" onclick="openPlaylist('tools')">
+                                    <i class="fas fa-play-circle me-1"></i> Open Playlist
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5 bg-light" id="features">
+        <div class="container">
+            <h2 class="section-title text-center">Platform Features</h2>
+            
+            <div class="row">
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h4>Curated Video Content</h4>
+                    <p>Hand-picked YouTube playlists from top educators and industry experts.</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h4>Practical Examples</h4>
+                    <p>Real-world projects and code samples to reinforce learning concepts.</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <h4>Structured Learning Paths</h4>
+                    <p>Organized content that guides you from beginner to advanced levels.</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4>Regular Updates</h4>
+                    <p>Content is regularly updated to reflect the latest industry trends.</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h4>Multi-language Support</h4>
+                    <p>Resources available in multiple programming languages and human languages.</p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h4>Downloadable Resources</h4>
+                    <p>Access to code libraries, documentation, and additional learning materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-5" id="about">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h2 class="section-title">About Tech Resources</h2>
+                    <p>Tech Resources is a comprehensive learning platform designed to help developers at all levels master modern software related all technologies.</p>
+                    <p>Our mission is to provide high-quality, curated content that bridges the gap between theoretical knowledge and practical application.</p>
+                    <p>With playlists organized by technology stack and difficulty level, you can easily find the resources that match your learning goals.</p>
+                     <!-- Updated button to link to skills.html -->
+                    <a href="skill.html" class="btn btn-primary mt-3">Explore All Skills</a>
+                </div>
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Coding workspace" class="img-fluid rounded shadow">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h4><i class="fas fa-laptop-code me-2"></i>Tech Resources</h4>
+                    <p>Your gateway to mastering modern IT technologies through curated learning paths.</p>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-light">Home</a></li>
+                        <li><a href="#resources" class="text-light">Resources</a></li>
+                        <li><a href="#features" class="text-light">Features</a></li>
+                        <li><a href="#about" class="text-light">About</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <h5>Connect With Us</h5>
+                    <div class="d-flex">
+                        <a href="#" class="text-light me-3"><i class="fab fa-youtube fa-2x"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-github fa-2x"></i></a>
+                        <a href="#" class="text-light me-3"><i class="fab fa-twitter fa-2x"></i></a>
+                        <a href="#" class="text-light"><i class="fab fa-linkedin fa-2x"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center pt-3">
+                <p>&copy; 2023 Tech Resources. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        function openPlaylist(category) {
+            // In a real implementation, this would redirect to the actual playlist
+            // For demonstration, we'll show an alert
+            const playlists = {
+                'fullstack': 'https://www.youtube.com/playlist?list=PLWCBEFSsUCI_vlZ-PmAEsSQn5ChS6OagY',
+                'frontend': 'https://www.youtube.com/playlist?list=PL0Zuz27SZ-6PRCpm9clX0WiBEMB70FWwd',
+                'backend': 'https://www.youtube.com/playlist?list=PL_c9BZzLwBRKOPVj2V99C2MkzXqX8yX9x',
+                'mobile': 'https://www.youtube.com/playlist?list=PL_c9BZzLwBRJ6WJ1Wm4xUJt3VdBHXy6yG',
+                'devops': 'https://www.youtube.com/playlist?list=PL_c9BZzLwBRJbq7ZRcT9V9W9pVJ7Zz6yH',
+                'tools': 'https://www.youtube.com/playlist?list=PL_c9BZzLwBRK0Pc28IdvPQizD2mJlgoID'
+            };
+            
+            // In a real implementation, you would redirect to the playlist URL
+            // window.location.href = playlists[category];
+            
+            // For demo purposes, we'll show an alert and log to console
+            alert(`Opening ${category} playlist. In a real implementation, this would redirect to: ${playlists[category]}`);
+            console.log(`Redirecting to: ${playlists[category]}`);
+        }
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

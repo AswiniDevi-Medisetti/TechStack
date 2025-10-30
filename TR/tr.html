@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Resources Hub - Explore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #4bb543;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f7fb;
+            color: var(--dark);
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .nav-link {
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(63, 55, 201, 0.9)), url('https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+        
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            font-weight: 600;
+            padding: 15px 20px;
+            border-bottom: none;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .resource-icon {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .category-badge {
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .footer {
+            background: linear-gradient(135deg, var(--dark), #000);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 60px;
+        }
+        
+        .footer h5 {
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .footer h5:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+        
+        .footer-links a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+        
+        .social-icons a {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 20px;
+            margin-top: 40px;
+            text-align: center;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        .filter-buttons .btn {
+            margin: 5px;
+            border-radius: 20px;
+        }
+        
+        .resource-card {
+            height: 100%;
+        }
+        
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+        
+        .stats-card {
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .stats-label {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-laptop-code me-2"></i>TechResources
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="#">Explore</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Tutorials</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">Community</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">About</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <button class="btn btn-outline-light">Sign In</button>
+                    <button class="btn btn-light ms-2">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <h1 class="hero-title">Explore Tech Resources</h1>
+            <p class="hero-subtitle">Discover the best tools, frameworks, libraries, and learning materials to boost your development skills and projects.</p>
+            <div class="search-box">
+                <div class="input-group">
+                    <input type="text" class="form-control form-control-lg" placeholder="Search resources...">
+                    <button class="btn btn-primary" type="button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container mb-5">
+        <div class="row text-center">
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stats-card">
+                    <div class="stats-number">1,250+</div>
+                    <div class="stats-label">Resources</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stats-card">
+                    <div class="stats-number">50+</div>
+                    <div class="stats-label">Categories</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stats-card">
+                    <div class="stats-number">15K+</div>
+                    <div class="stats-label">Developers</div>
+                </div>
+            </div>
+            <div class="col-md-3 col-6 mb-4">
+                <div class="stats-card">
+                    <div class="stats-number">4.8</div>
+                    <div class="stats-label">Avg. Rating</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <!-- Filters Sidebar -->
+            <div class="col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        <i class="fas fa-filter me-2"></i>Filter Resources
+                    </div>
+                    <div class="card-body">
+                        <h6 class="fw-bold mb-3">Categories</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="frontend">
+                            <label class="form-check-label" for="frontend">Frontend Development</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="backend">
+                            <label class="form-check-label" for="backend">Backend Development</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="mobile">
+                            <label class="form-check-label" for="mobile">Mobile Development</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="database">
+                            <label class="form-check-label" for="database">Database</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="checkbox" id="devops">
+                            <label class="form-check-label" for="devops">DevOps</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="checkbox" id="ai">
+                            <label class="form-check-label" for="ai">AI & Machine Learning</label>
+                        </div>
+                        
+                        <h6 class="fw-bold mb-3">Difficulty Level</h6>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="difficulty" id="beginner">
+                            <label class="form-check-label" for="beginner">Beginner</label>
+                        </div>
+                        <div class="form-check mb-2">
+                            <input class="form-check-input" type="radio" name="difficulty" id="intermediate">
+                            <label class="form-check-label" for="intermediate">Intermediate</label>
+                        </div>
+                        <div class="form-check mb-3">
+                            <input class="form-check-input" type="radio" name="difficulty" id="advanced">
+                            <label class="form-check-label" for="advanced">Advanced</label>
+                        </div>
+                        
+                        <button class="btn btn-primary w-100">Apply Filters</button>
+                    </div>
+                </div>
+                
+                <div class="card mt-4">
+                    <div class="card-header">
+                        <i class="fas fa-fire me-2"></i>Trending Resources
+                    </div>
+                    <div class="card-body">
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <i class="fab fa-react text-primary fa-lg"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-0">React.js</h6>
+                                <small class="text-muted">Frontend Library</small>
+                            </div>
+                        </div>
+                        <div class="d-flex mb-3">
+                            <div class="flex-shrink-0">
+                                <i class="fab fa-node-js text-success fa-lg"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-0">Node.js</h6>
+                                <small class="text-muted">Runtime Environment</small>
+                            </div>
+                        </div>
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-database text-warning fa-lg"></i>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <h6 class="mb-0">MongoDB</h6>
+                                <small class="text-muted">NoSQL Database</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resources Grid -->
+            <div class="col-lg-9">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h2 class="section-title">Popular Resources</h2>
+                    <div class="filter-buttons">
+                        <button class="btn btn-outline-primary active">All</button>
+                        <button class="btn btn-outline-primary">Free</button>
+                        <button class="btn btn-outline-primary">Paid</button>
+                        <button class="btn btn-outline-primary">New</button>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <!-- Resource Card 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card resource-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Frontend</span>
+                                <span class="badge bg-success">Free</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="resource-icon">
+                                    <i class="fab fa-js-square"></i>
+                                </div>
+                                <h5 class="card-title">JavaScript ES6+</h5>
+                                <p class="card-text">Complete guide to modern JavaScript with ES6 features and beyond.</p>
+                                <div class="mb-3">
+                                    <span class="category-badge">Tutorial</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resource Card 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card resource-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Framework</span>
+                                <span class="badge bg-warning text-dark">Premium</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="resource-icon">
+                                    <i class="fab fa-vuejs"></i>
+                                </div>
+                                <h5 class="card-title">Vue.js 3</h5>
+                                <p class="card-text">Master Vue.js 3 with Composition API and build modern web apps.</p>
+                                <div class="mb-3">
+                                    <span class="category-badge">Course</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resource Card 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card resource-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Backend</span>
+                                <span class="badge bg-success">Free</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="resource-icon">
+                                    <i class="fab fa-python"></i>
+                                </div>
+                                <h5 class="card-title">Django REST API</h5>
+                                <p class="card-text">Build powerful REST APIs with Django and Django REST Framework.</p>
+                                <div class="mb-3">
+                                    <span class="category-badge">Tutorial</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resource Card 4 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card resource-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Database</span>
+                                <span class="badge bg-success">Free</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="resource-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <h5 class="card-title">PostgreSQL</h5>
+                                <p class="card-text">Complete guide to PostgreSQL with advanced query optimization.</p>
+                                <div class="mb-3">
+                                    <span class="category-badge">Documentation</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resource Card 5 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card resource-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>DevOps</span>
+                                <span class="badge bg-warning text-dark">Premium</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="resource-icon">
+                                    <i classfab fa-docker"></i>
+                                </div>
+                                <h5 class="card-title">Docker & Kubernetes</h5>
+                                <p class="card-text">Containerize your applications and deploy with Kubernetes.</p>
+                                <div class="mb-3">
+                                    <span class="category-badge">Course</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Resource Card 6 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card resource-card">
+                            <div class="card-header d-flex justify-content-between align-items-center">
+                                <span>Mobile</span>
+                                <span class="badge bg-success">Free</span>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="resource-icon">
+                                    <i class="fab fa-react"></i>
+                                </div>
+                                <h5 class="card-title">React Native</h5>
+                                <p class="card-text">Build cross-platform mobile apps with React Native framework.</p>
+                                <div class="mb-3">
+                                    <span class="category-badge">Tutorial</span>
+                                </div>
+                                <a href="#" class="btn btn-primary">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Pagination -->
+                <nav aria-label="Page navigation" class="mt-5">
+                    <ul class="pagination justify-content-center">
+                        <li class="page-item disabled">
+                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                        </li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>TechResources</h5>
+                    <p class="mt-4">Your one-stop destination for all technology learning resources, tools, and community support.</p>
+                    <div class="social-icons mt-4">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links mt-4">
+                        <a href="#">Home</a>
+                        <a href="#">Explore</a>
+                        <a href="#">Tutorials</a>
+                        <a href="#">Community</a>
+                        <a href="#">About Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h5>Categories</h5>
+                    <div class="footer-links mt-4">
+                        <a href="#">Frontend</a>
+                        <a href="#">Backend</a>
+                        <a href="#">Mobile</a>
+                        <a href="#">Database</a>
+                        <a href="#">DevOps</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5>Newsletter</h5>
+                    <p class="mt-4">Subscribe to our newsletter to get updates on new resources and features.</p>
+                    <div class="input-group mt-3">
+                        <input type="email" class="form-control" placeholder="Your email">
+                        <button class="btn btn-primary">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 TechResources. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
